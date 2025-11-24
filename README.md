@@ -1,21 +1,57 @@
-# Brain Tumor Detection
+# Multi-Disease Detection System
 
-A brain tumor is an abnormal growth of tissue in the brain or central spine that can disrupt proper brain function. It is the abnormal growth of tissues in brain. If the tumor originates in the brain, it is called a primary brain tumor. Primary brain tumors can be benign or malignant. Benign brain tumors are not cancerous.
+This project is a Multi-Disease Detection System capable of identifying Brain Tumors from MRI scans and Skin Cancer from dermoscopic images. It uses deep-learning classification models trained using TensorFlow/Keras. The system includes a GUI, preprocessing utilities, visualization scripts, and standalone prediction modules for both diseases.
 
+---
 
-## Requirements
+## 📁 Project Structure
 
-opencv
+```
+app.py                     # Main application runner
+brain_tumor_detector.h5    # Trained deep learning model
+brain_tumor_imd.py         # Brain Tumor file
+displayTumor.py            # Visualization of tumor images
+frames.py                  # GUI frame components
+gui.py                     # Complete GUI interface
+predictTumor.py            # Script to predict tumor from an image
+skinvision (2).ipynb       # Skin cancer file
+test_load.py               # Test script to load the model
+notumor.jpg                # Sample image (no tumor)
+tumor.jpg                  # Sample image (tumor)
+tumordetection.jpg         # Result demo image
+viewtumor.jpg              # For GUI display
+```
 
-tensorflow
+---
 
-## Tumor Detection
-The GUI can be used to detect and view the tumor region.
+## 🚀 Features
 
-The tensorflow model can be used to detect if the MRI image contains tumor or not.
+* **Deep Learning Model** for brain tumor detection using MRI scans
+* **GUI-based interface** for interactive predictions
+* **Image preprocessing** and visualization utilities
+* **Prediction script** for direct command-line use
+* **Includes sample images** for quick testing
 
-![alt text](tumordetection.jpg)
+---
 
-The tumor region can be viewed using Image processing methods applied through opencv. Image segmentation using marker-based watershed segmentation algorithm is used to view the tumor region. A watershed is a transformation defined on a grayscale image. We label the region which we are sure of being the foreground or object with one color(or intensity), and label the region which we are sure of being background or non-object with another color and finally the region which we are not sure of anything, we label it with 0. That is our marker. Then apply watershed algorithm. Then our marker will be updated with the labels we gave, and the boundaries of objects will have a value of -1.
+## ▶️ How to Run
 
-![alt text](viewtumor.jpg)
+### 1. Install Dependencies
+
+```bash
+pip install tensorflow keras numpy opencv-python pillow
+```
+
+Add any other required libraries depending on your scripts.
+
+### 2. Run the GUI
+
+```bash
+python gui.py
+```
+
+### 3. Run Prediction from Command Line
+
+```bash
+python predictTumor.py --image path/to/image.jpg
+```
